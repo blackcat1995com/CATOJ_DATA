@@ -5,35 +5,36 @@ using namespace std;
 const int N = 1e6 + 10;
 
 int n, m;
-int a[N], b[N];
+int b[N];
 
-void insert(int l, int r, int c){
-    b[l] += c;
-    b[r+1] -= c;
+void insert(int L, int R, int c){
+	b[L] += c;
+  	b[R + 1] -= c;
 }
 
 int main() {
-	
-	freopen("10.in", "r", stdin);
-	freopen("10.out", "w", stdout);
-
-    scanf("%d%d", &n, &m);
-
-    for(int i = 1; i <= n; i++){
-        scanf("%d", &a[i]);
-        insert(i, i, a[i]);
+  
+  	scanf("%d%d", &n, &m);
+  
+  	for(int i = 1; i <= n; i++){
+    	int x;
+      	scanf("%d", &x);
+      	insert(i, i, x);
     }
-
-    while(m--){
-        int l, r, c;
-        scanf("%d%d%d", &l, &r, &c);
-        insert(l, r, c);
+  
+  	
+  	while(m--){
+    	int L, R, c;
+      	scanf("%d%d%d", &L, &R, &c);
+      	insert(L, R, c);
     }
-
-    for(int i = 1; i <= n; i++){
-        a[i] = a[i-1] + b[i];
-        printf("%d ", a[i]);
+  	
+  	int sum = 0;
+  	for(int i = 1; i <= n; i++){
+    	sum += b[i];
+      	printf("%d ", sum);
     }
 	
 	return 0;
 }
+
