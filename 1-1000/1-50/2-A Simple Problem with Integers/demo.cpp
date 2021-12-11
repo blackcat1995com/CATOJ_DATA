@@ -2,92 +2,104 @@
 #include <cstdio>
 using namespace std;
 
-typedef long long LL;
-
 const int N = 1e5 + 10;
+
+typedef long long LL;
 
 int n, m;
 int a[N];
 
 struct Node{
-    int l, r;
-    LL sum, add;
+	int L, R;
+  	LL sum, add;	
 }tr[N * 4];
 
 void pushup(int u){
-    tr[u].sum = tr[u << 1].sum + tr[u << 1 | 1].sum;
+	tr[u].sum = (LL)(tr[u << 1].sum + tr[u << 1 | 1].sum);
 }
 
 void pushdown(int u){
-    auto &root = tr[u], &left = tr[u << 1], &right = tr[u << 1 | 1];
-    if(root.add){
-        left.add += root.add, left.sum += (LL)(left.r - left.l + 1) * root.add;
-        right.add += root.add, right.sum += (LL)(right.r - right.l + 1) * root.add;
-        root.add = 0;
+	
+	auto &root = tr[u], &left = tr[u << 1], &right = tr[u << 1 | 1];
+	
+  	if(root.add){
+    	left.add += root.add, left.sum += (LL)(left.R - left.L + 1) * root.add;
+      	right.add += root.add, right.sum += (LL)(right.R - right.L + 1) * root.add;
+      	root.add = 0;
     }
 }
 
-void build(int u, int l, int r){
-    if(l == r){
-        tr[u] = {l, r, a[l], 0};
-        return;
+void build(int u, int L, int R){
+	
+	if(L == R){
+    	tr[u] = {L, R, a[L], 0};
+      	return;
     }
-    
-    tr[u] = {l ,r};
-    int mid = l + r >> 1;
-    build(u << 1, l, mid), build(u << 1 | 1, mid + 1, r);
-    pushup(u);
+  
+  	tr[u] = {L, R};
+  
+  	int mid = tr[u].L + tr[u].R >> 1;
+  
+  	build(u << 1, L, mid), build(u << 1 | 1, mid + 1, R);
+  
+  	pushup(u);
 }
 
-void modify(int u, int l, int r, int d){
-    if(tr[u].l >= l && tr[u].r <= r){
-        tr[u].sum += (LL)(tr[u].r - tr[u].l + 1) * d;
+void update(int u, int L, int R, int d){
+	
+    if(tr[u].L >= L && tr[u].R <= R){
+        tr[u].sum += (LL)(tr[u].R - tr[u].L + 1) * d;
         tr[u].add += d;
         return;
     }
     
     pushdown(u);
     
-    int mid = tr[u].l + tr[u].r >> 1;
-    if(l <= mid) modify(u << 1, l, r, d);
-    if(r > mid) modify(u << 1 | 1, l, r, d);
+    int mid = tr[u].L + tr[u].R >> 1;
+    if(L <= mid) update(u << 1, L, R, d);
+    if(R > mid) update(u << 1 | 1, L, R, d);
+    
     pushup(u);
-}
-
-LL query(int u, int l, int r){
-    if(tr[u].l >= l && tr[u].r <= r) return tr[u].sum;
-    
-    pushdown(u);
-    
-    int mid = tr[u].l + tr[u].r >> 1;
-    
-    LL sum = 0;
-    
-    if(l <= mid) sum = query(u << 1, l, r);
-    if(r > mid) sum += query(u << 1 | 1, l, r);
-    
-    return sum;
     
 }
 
-int main(){
-    
-    scanf("%d%d", &n, &m);
-    for (int i = 1; i <= n; ++i) scanf("%d", &a[i]);
-    build(1, 1, n);
 
-    char op[2];
-    int l, r, x;
-    while (m -- ){
-        scanf("%s%d%d", op, &l, &r);
-        if (*op == 'Q') printf("%lld\n", query(1, l, r));
-        else{
-            scanf("%d", &x);
-            modify(1, l, r, x);
+LL query(int u, int L, int R){
+	
+	if(tr[u].L >= L && tr[u].R <= R) return tr[u].sum;
+  	
+  	pushdown(u);
+  
+  	int mid = tr[u].L + tr[u].R >> 1;
+  
+  	LL res = 0;
+  	if(L <= mid) res = query(u << 1, L, R);
+  	if(R > mid) res += query(u << 1 | 1, L, R);
+  
+  	return res;
+}
+
+
+int main() {
+  
+  	scanf("%d%d", &n, &m);
+  
+  	for(int i = 1; i <= n; i++) scanf("%d", &a[i]);
+  
+  	build(1, 1, n);
+
+  	while(m--){
+        char op[2];
+    	int L, R, d;
+      	scanf("%s%d%d", op, &L, &R);
+      
+      	if(*op == 'C'){
+        	scanf("%d", &d);
+          	update(1, L, R, d);
         }
-    }
-    return 0;
+      	else printf("%lld\n", query(1, L, R));
+	}
+	
+	return 0;
 }
-
-
 

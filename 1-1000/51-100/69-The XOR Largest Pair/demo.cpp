@@ -19,7 +19,7 @@ void insert(int x){
 
 int query(int x){
 	int res = 0, p = 0;
-	for(int i = 30; i >= 0; i--){
+	for(int i = 30; ~i; i--){
 		int s = x >> i & 1;
 		if(son[p][!s]){
 			res += 1 << i;
