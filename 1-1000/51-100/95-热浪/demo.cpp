@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+using namespace std;
+
+const int N = 2510, M = 6200 * 2 + 10;
+
+int n, m, S, T;
+int h[N], to[M], w[M], ne[M], idx = 0;
+int dis[N], q[N];
+bool book[N];
+
+void add(int a, int b, int c){
+	w[idx] = c, to[idx] = b, ne[idx] = h[a], h[a] = idx++;
+}
+
+void spfa(){
+	memset(dis, 0x3f, sizeof dis);
+	dis[S] = 0;
+
+	int hh = 0, tt = 1;
+	q[0] = S, book[S] = true;
+	while(hh != tt){
+		int t = q[hh++];
+		if(hh == N) hh = 0;
+		book[t] = false;
+
+		for(int i = h[t]; ~i; i = ne[i]){
+			int j = to[i];
+			if(dis[j] > dis[t] + w[i]){
+				dis[j] = dis[t] + w[i];
+				if(!book[j]){
+					q[tt++] = j;
+					if(tt == N) tt = 0;
+					book[j] = true;
+				}
+			}
+		}
+	}
+}
+
+int main() {
+
+	cin >> n >> m >> S >> T;
+
+	memset(h, -1, sizeof h);
+
+	while(m--){
+		int a, b, c;
+		cin >> a >> b >> c;
+		add(a, b, c), add(b, a, c);
+	}
+
+	spfa();
+
+	cout << dis[T] << endl;
+
+	return 0;
+}
+
