@@ -5,7 +5,7 @@ using namespace std;
 
 const int N = 1010;
 
-int n, m;
+int m, n;
 bool h[N];
 queue<int> q;
 int ans = 0;

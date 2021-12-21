@@ -6,8 +6,8 @@ using namespace std;
 const int N = 2510, M = 6200 * 2 + 10;
 
 int n, m, S, T;
-int h[N], to[M], w[M], ne[M], idx = 0;
-int dis[N], q[N * 2 + 10];
+int h[N], w[M], to[M], ne[M], idx = 0;
+int q[N * 2], dis[N];
 bool book[N];
 
 void add(int a, int b, int c){
@@ -19,20 +19,22 @@ void spfa(){
 	dis[S] = 0;
 
 	int hh = 0, tt = -1;
-	q[++tt] = S, book[S] = true;
+	q[++tt] = S;
+	book[S] = true;
+
 	while(hh <= tt){
 		int t = q[hh++];
 		book[t] = false;
-
 		for(int i = h[t]; ~i; i = ne[i]){
-			int j = to[i];
-			if(dis[j] > dis[t] + w[i]){
-				dis[j] = dis[t] + w[i];
-				if(!book[j]){
-					q[++tt] = j;
-					book[j] = true;
+			int v = to[i];
+			if(dis[v] > dis[t] + w[i]){
+				dis[v] = dis[t] + w[i];
+				if(!book[v]){
+					q[++tt] = v;
+					book[v] = true;
 				}
 			}
+			
 		}
 	}
 }
@@ -40,9 +42,8 @@ void spfa(){
 int main() {
 
 	cin >> n >> m >> S >> T;
-
 	memset(h, -1, sizeof h);
-
+	
 	while(m--){
 		int a, b, c;
 		cin >> a >> b >> c;
