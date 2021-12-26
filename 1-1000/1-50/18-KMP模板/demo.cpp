@@ -5,7 +5,7 @@ using namespace std;
 
 const int N = 1e6 + 10;
 
-char p[N], s[N];
+char s[N], p[N];
 int ne[N];
 
 int main() {

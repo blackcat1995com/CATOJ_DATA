@@ -15,7 +15,7 @@ int main() {
     	int v, w, s;
       	cin >> v >> w >> s;
       	for(int j = m; j >= v; j--)
-          	for(int k = 1; k <= s && k * v <= j; k++)
+          	for(int k = 0; k <= s && k * v <= j; k++)
               	f[j] = max(f[j], f[j - k * v] + k * w);
     }
   
