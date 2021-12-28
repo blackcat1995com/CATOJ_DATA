@@ -2,28 +2,29 @@
 #include <cstdio>
 using namespace std;
 
-const int N = 1e6 + 10;
+const int N = 1e6 + 7;
 
 int n, x, ans;
-int h[N];
+bool h[N];
 
 int main() {
   
-  	scanf("%d", &n);
+  	cin >> n;
   	for(int i = 1; i <= n; i++){
     	int t;
-      	scanf("%d", &t);
-      	h[t] = 1;
+      	cin >> t;
+      	h[t] = true;
     }
   
-  	scanf("%d", &x);
-  
+  	cin >> x;
+  	
   	for(int i = 1; i <= x / 2; i++)
-      	if(h[i] == 1 && h[x - i] == 1 && i != x - i)
+      	if(h[i] && h[x - i] && i != x - i)
           	ans++;
   
-  	printf("%d\n", ans);
+  	cout << ans << endl;
 	
 	return 0;
 }
+
 
