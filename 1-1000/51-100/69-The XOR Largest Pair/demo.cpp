@@ -2,47 +2,49 @@
 #include <cstdio>
 using namespace std;
 
-const int N = 1e5 + 10, M = 31 * N;
+const int N = 1e5 + 10;
 
 int n;
-int son[M][2], idx = 0;
 int a[N];
+int son[N * 31][2], idx = 0;
 
 void insert(int x){
 	int p = 0;
-	for(int i = 30; ~i; i--){
-		int &s = son[p][x >> i & 1];
-		if(!s) s = ++idx;
-		p = s;
-	}
+  	for(int i = 30; ~i; i--){
+    	int& s = son[p][x >> i & 1];
+      	if(!s) s = ++idx;
+      	p = s;
+    }
 }
 
 int query(int x){
-	int res = 0, p = 0;
-	for(int i = 30; ~i; i--){
-		int s = x >> i & 1;
-		if(son[p][!s]){
-			res += 1 << i;
-			p = son[p][!s];
-		}
-		else p = son[p][s];
-	}
-	return res;
+	int p = 0, res = 0;
+  	for(int i = 30; ~i; i--){
+    	int t = x >> i & 1;
+      	if(son[p][!t]){
+          	res += 1 << i;
+        	p = son[p][!t];     	
+        }
+      	else p = son[p][t];
+    }
+  	return res;
 }
 
 int main() {
-
-	scanf("%d", &n);
-	for(int i = 1; i <= n; i++){
-		scanf("%d", &a[i]);
-		insert(a[i]);
-	}
-
-	int ans = 0;
-	for(int i = 1; i <= n; i++) ans = max(ans, query(a[i]));
-
-	printf("%d\n", ans);
+  
+  	cin >> n;
+  	for(int i = 1; i <= n; i++){
+    	cin >> a[i];
+      	insert(a[i]);
+    }
+  
+  	int ans = 0;
+  
+  	for(int i = 1; i <= n; i++) ans = max(ans, query(a[i]));
+  
+  	cout << ans << endl;
 	
 	return 0;
 }
+
 
