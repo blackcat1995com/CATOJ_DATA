@@ -2,23 +2,30 @@
 #include <cstdio>
 using namespace std;
 
+int calc(int x){
+	int res = 0;
+  
+  	while(x){
+    	res += x & 1;
+      	x >>= 1;
+    }
+      	
+  	return res;
+}
+
 int main() {
-	
-	int n;
-	scanf("%d", &n);
-	
-	while(n--){
-	    int x;
-	    scanf("%d", &x);
-	    
-	    int ans = 0;
-	    while(x) {
-            ans += x & 1;
-            x >>= 1;
-        }
-	    printf("%d ", ans);
-	}
+  
+  	int n;
+  	cin >> n;
+  
+  	while(n--){
+    	int x;
+      	cin >> x;
+      	cout << calc(x) << " ";
+    }
+      	
 	
 	return 0;
 }
+
 
