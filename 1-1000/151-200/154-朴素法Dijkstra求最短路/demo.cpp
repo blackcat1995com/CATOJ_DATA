@@ -10,7 +10,7 @@ int g[N][N];
 int dis[N];
 bool book[N];
 
-void dijkstra(){
+int dijkstra(){
 	memset(dis, 0x3f, sizeof dis);
   	dis[1] = 0;
   
@@ -22,26 +22,29 @@ void dijkstra(){
         }
       	book[u] = true;
       
-      	for(int j = 1; j <= n; j++)
-          	dis[j] = min(dis[j], dis[u] + g[u][j]);
+      	for(int v = 1; v <= n; v++)
+          	dis[v] = min(dis[v], dis[u] + g[u][v]);
     }
+  
+  	if(dis[n] == INF) return -1;
+  	return dis[n];
 }
 
 int main() {
   
   	cin >> n >> m;
   	memset(g, 0x3f, sizeof g);
+  	
   	while(m--){
     	int a, b, c;
       	cin >> a >> b >> c;
       	g[a][b] = min(g[a][b], c);
     }
   
-  	dijkstra();
-	
-  	if(dis[n] == INF) dis[n] = -1;
-  	cout << dis[n] << endl;
+  	for(int i = 1; i <= n; i++) g[i][i] = 0;
   
+  	cout << dijkstra() << endl;
+	
 	return 0;
 }
 
