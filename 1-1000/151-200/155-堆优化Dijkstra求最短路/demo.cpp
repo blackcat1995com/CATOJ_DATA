@@ -2,8 +2,6 @@
 #include <cstdio>
 #include <queue>
 #include <cstring>
-#define dd first
-#define uu second
 using namespace std;
 
 typedef pair<int, int> PII;
@@ -24,14 +22,14 @@ int dijkstra(){
   
   	dis[1] = 0;
   
-  	priority_queue<PII, vector<PII>, greater<PII> > heap;
+  	priority_queue<PII> heap;
   	heap.push({0, 1});
   	
   	while(!heap.empty()){
     	PII t = heap.top();
       	heap.pop();
       
-      	int d = t.dd, u = t.uu;
+      	int u = t.second;
       	if(book[u]) continue;
       	book[u] = true;
       

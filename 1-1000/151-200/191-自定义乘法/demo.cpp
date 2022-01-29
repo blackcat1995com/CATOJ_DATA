@@ -11,10 +11,10 @@ int main() {
   	int ans = 0;
   
   	for(auto a : A)
-    	for(auto b : B)
-        	ans += (a - '0') * (b - '0');
-        
-    cout << ans << endl;
+      	for(auto b : B)
+          	ans += (a - '0') * (b - '0');
+  
+  	cout << ans << endl;
 	
 	return 0;
 }
