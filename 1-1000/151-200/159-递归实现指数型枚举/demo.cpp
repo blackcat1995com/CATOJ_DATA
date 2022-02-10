@@ -7,7 +7,7 @@ int book[20];
 
 void dfs(int u){
 	if(u > n){
-    	for(int i = 1; i <= 16; i++)
+    	for(int i = 1; i <= n; i++)
           	if(book[i]) cout << i << " ";
       	puts("");
       	return;
@@ -30,5 +30,3 @@ int main() {
 	
 	return 0;
 }
-
-
