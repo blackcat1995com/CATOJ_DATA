@@ -8,10 +8,6 @@ int n, m, q;
 int a[N][N], s[N][N];
 
 int main() {
-	
-	
-	freopen("8.in", "r", stdin);
-	freopen("8.out", "w", stdout);
 
     scanf("%d%d%d", &n, &m, &q);
 

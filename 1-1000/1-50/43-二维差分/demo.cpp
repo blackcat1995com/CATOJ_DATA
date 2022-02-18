@@ -15,9 +15,6 @@ void insert(int x1, int y1, int x2, int y2, int c){
 }
 
 int main() {
-	
-	freopen("10.in", "r", stdin);
-	freopen("10.out", "w", stdout);
 
     scanf("%d%d%d", &n, &m, &q);
 

@@ -5,6 +5,6 @@ import math
 fin = open("4.in", "w", encoding="utf8")
 # fout = open("1.out", "w", encoding="utf8")
 
-a = random.randint(1, 1000)
+a = random.randint(1, 200)
 
 fin.write(str(a) + '\n')

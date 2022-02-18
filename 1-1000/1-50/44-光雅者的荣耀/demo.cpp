@@ -10,9 +10,6 @@ LL sum[N];
 LL cnt = 0;
 
 int main() {
-	
-	freopen("10.in", "r", stdin);
-	freopen("10.out", "w", stdout);
 
 	scanf("%lld%lld", &n, &k);
 
