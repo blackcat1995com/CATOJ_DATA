@@ -5,9 +5,6 @@
 using namespace std;
 
 int main() {
-	
-	freopen("10.in", "r", stdin);
-	freopen("10.out", "w", stdout);
 
 	int n;
 	cin >> n;
