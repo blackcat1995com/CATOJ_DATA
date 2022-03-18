@@ -24,7 +24,6 @@ int main() {
       	cout << calc(x) << " ";
     }
       	
-	
 	return 0;
 }
 
