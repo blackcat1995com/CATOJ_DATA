@@ -63,8 +63,8 @@ int main() {
 				sum[i] = (sum[i - 1] + f[i][R]) % MOD;
 
 			for(int i = L + 1; i <= R - 2; i++){
-				int nextv = min(min(R - 1, i + k + 1), ne[i + 1]);
-				g[L][R] = (g[L][R] + (((f[L][i] + g[L][i]) % MOD) * (sum[nextv] - sum[i] + MOD) % MOD)) % MOD;
+				int endj = min(min(R - 1, i + k + 1), ne[i + 1]);
+				g[L][R] = (g[L][R] + (((f[L][i] + g[L][i]) % MOD) * (sum[endj] - sum[i] + MOD) % MOD)) % MOD;
 			}
 		}
 	}
