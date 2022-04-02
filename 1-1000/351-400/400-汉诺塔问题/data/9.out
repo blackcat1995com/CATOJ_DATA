@@ -1,0 +1,7 @@
+1 :from a-->c
+2 :from a-->b
+3 :from c-->b
+4 :from a-->c
+5 :from b-->a
+6 :from b-->c
+7 :from a-->c
