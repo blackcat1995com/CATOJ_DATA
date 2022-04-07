@@ -5,18 +5,18 @@ using namespace std;
 const int N = 30;
 
 int n, r;
-int a[N];
+int path[N];
 
 void dfs(int u){
 	if(u > r){
 		for(int i = 1; i <= r; i++)
-			printf("%3d", a[i]);
+			printf("%3d", path[i]);
 		puts("");
       	return;
 	}
 
-	for(int i = a[u - 1] + 1; i <= n; i++){
-		a[u] = i;
+	for(int i = path[u - 1] + 1; i <= n; i++){
+		path[u] = i;
 		dfs(u + 1);
 	}
 }
