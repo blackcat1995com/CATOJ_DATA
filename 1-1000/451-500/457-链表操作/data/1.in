@@ -1,0 +1,23 @@
+3 3 2 1
+21
+show
+delete 1
+show
+delete 2
+show
+delete 1
+show
+delete 2
+insert 2 5
+show
+insert 1 5
+show
+insert 1 7
+show
+insert 2 5
+show
+insert 3 6
+show
+insert 1 8
+show
+get 2

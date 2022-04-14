@@ -1,0 +1,21 @@
+1 2 3 
+delete OK
+2 3 
+delete OK
+2 
+delete OK
+Link list is empty
+delete fail
+insert fail
+Link list is empty
+insert OK
+5 
+insert OK
+7 5 
+insert OK
+7 5 5 
+insert OK
+7 5 6 5 
+insert OK
+8 7 5 6 5 
+7
