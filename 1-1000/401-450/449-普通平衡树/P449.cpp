@@ -35,6 +35,7 @@ void zig(int& p) {
 	pushup(tr[p].R), pushup(p);
 }
 
+// ×óĞı 
 void zag(int& p) {
 	int q = tr[p].R;
 	tr[p].R = tr[q].L;
