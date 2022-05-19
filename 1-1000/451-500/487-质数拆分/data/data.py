@@ -5,6 +5,6 @@ import math
 fin = open("10.in", "w", encoding="utf8")
 # fout = open("1.out", "w", encoding="utf8")
 
-n = random.randint(1, 9999)
+n = random.randint(1, 5000) * 2
 
 fin.write(str(n) + '\n')
