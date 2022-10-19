@@ -16,7 +16,6 @@ int n, k;
 int main() {
   
   	cin >> n >> k;
-  
   	for(int i = 1; i <= n; i++) cin >> stu[i].num >> stu[i].score;
   
   	sort(stu + 1, stu + n + 1);
@@ -25,5 +24,4 @@ int main() {
 	
 	return 0;
 }
-
 
