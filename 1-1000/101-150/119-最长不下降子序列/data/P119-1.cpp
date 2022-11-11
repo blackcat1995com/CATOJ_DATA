@@ -4,7 +4,7 @@
 using namespace std;
 
 int n;
-int a[210][3];
+int a[1010][3];
 
 int ans = 1;
 int is = 0, ie = 0;
