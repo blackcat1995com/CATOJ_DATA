@@ -1,45 +1,47 @@
 #include <iostream>
-#include <string>
 #include <cstdio>
+#include <map>
 using namespace std;
 
-int tree[101];
-int main()
-{
-	int n, m, x, y;
+const int N = 1010;
+
+int n, m;
+int tr[N];
+bool book[N];
+map<int, int> mp;
+
+int main() {
+
 	cin >> n >> m;
-	for (int i = 1; i <= m; i++){
-		cin >> x >> y;
-		tree[y] = x; // y是x的孩子
-	}
-
-	// 寻找根节点
-	int root;
-	for (int i = 1; i <= n; i++){
-		if (tree[i] == 0){
-			root = i;
-			break;
-		}
-	}
-	
-	// 找到孩子最多的节点
-	int maxroot, cnt = 0, maxcnt = 0;
-	for (int i = 1; i <= n; i++){
-		cnt = 0;
-		for (int j = 1; j <= n; j++){
-			if (tree[j] == i)
-				cnt++;
-		}
-		if (cnt > maxcnt){
-			maxcnt = cnt;
-			maxroot = i;
-		}
-	}
-	cout << root << endl << maxroot << endl;
-	for (int i = 1; i <= n; i++){
-		if (tree[i] == maxroot)
-			cout << i << " ";
-	}
-
+    while(m--){
+    	int x, y;
+        cin >> x >> y;
+        tr[y] = x;
+        mp[x]++;
+        book[x] = true;
+        book[y] = true;
+    }
+    
+    for(int i = 1;  i < N; i++)
+        if(tr[i] == 0 && book[i]){
+            cout << i << endl;
+            break;
+        }
+    
+    int cnt = -1, p = -1;
+    for(auto x: mp){
+        if(x.second >= cnt){
+            cnt = x.second;
+            p = x.first;
+        }
+    }
+    
+    cout << p << endl;
+    
+    for(int i = 1; i < N; i++)
+        if(tr[i] == p)
+            cout << i << " ";
+    
 	return 0;
 }
+

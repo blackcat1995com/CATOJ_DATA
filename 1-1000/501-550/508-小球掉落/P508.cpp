@@ -1,30 +1,39 @@
 #include <iostream>
-#include <cmath>
+#include <cstdio>
 using namespace std;
-int D, n, ans;
-bool a[1000001];
 
-void drop(int k);
+const int N = 1e6;
+
+int D, n;
+int res;
+
+bool book[N];
+
+void drop(int k){
+    // 判断到达叶子节点
+    if(k >= (1 << (D - 1)) && k < (1 << D)){
+        res = k;
+        return;
+    }
+    
+    if(book[k]){
+        book[k] = false;
+        drop(2 * k + 1);
+    }
+    else{
+		book[k] = true;
+        drop(2 * k);
+    }
+}
+
 int main() {
-	cin >> D >> n;
-	for (int i = 1; i <= n; i++) {
-		drop(1);
-	}
-	cout << ans;
+
+    cin >> D >> n;
+    
+    for(int i = 1;  i <= n; i++) drop(1);
+    
+    cout << res << endl;
+
 	return 0;
 }
-void drop(int k) {
-	if (pow(2.0, D - 1) <= k && k < pow(2.0, D)) {
-		ans = k;
-		return;
-	}
 
-	if (a[k]) {
-		a[k] = !a[k];
-		drop(2 * k + 1);
-	}
-	else {
-		a[k] = !a[k];
-		drop(2 * k);
-	}
-}
