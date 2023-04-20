@@ -13,12 +13,13 @@ for i in names:
     li = i.split('.')
 
     # print(li)
-    # pre_name = 
-
-    if li[0][-1] == '0':
-    	new_name = li[0][-2:] + '.' + li[1]
+    pre_name = li[1]
+    if li[0] == 'I':
+        ext = ".in"
     else:
-    	new_name = li[0][-1] + '.' + li[1]
+        ext = ".out"
+
+    new_name = pre_name + ext
 
     os.rename("./data/" + i, "./data/" + new_name)
-    # print(new_name)
+    # print(all_name)
