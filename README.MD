@@ -1,8 +1,8 @@
-# 刷题网址：[https://hioier.com/](https://hioier.com/problem)
+# 刷题网址：[http://www.blackcat1995.com](http://www.blackcat1995.com/problem)
 
-# 视频课程：[https://noi.hioier.com/](https://noi.hioier.com/)
+# 视频课程：[https://noi.blackcat1995.com](https://noi.blackcat1995.com)
 
-# 我的博客：[http://blog.hioier.com/](http://blog.hioier.com/)
+# 我的博客：[http://blog.blackcat1995.com](http://blog.blackcat1995.com)
 
 # 公众号：黑猫编程
 
