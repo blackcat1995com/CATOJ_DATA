@@ -1,10 +1,10 @@
 # 刷题网址：[http://www.blackcat1995.com](http://www.blackcat1995.com/problem)
 
-# 视频课程：[https://noi.blackcat1995.com](https://noi.blackcat1995.com)
-
-# 我的博客：[http://blog.blackcat1995.com](http://blog.blackcat1995.com)
+# 视频课程：[https://t.qianliao.tv/SOYUy5OP](https://t.qianliao.tv/SOYUy5OP)
 
 # 公众号：黑猫编程
 
-# 哔哩哔哩：时吉科技
+![和黑猫学编程公众号](./1-1000/other/和黑猫学编程公众号.jpg)
+
+# 哔哩哔哩：[黑猫编程](https://space.bilibili.com/547834710)
 
