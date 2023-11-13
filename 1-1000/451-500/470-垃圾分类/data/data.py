@@ -9,7 +9,7 @@ n = random.randint(1, 9999)
 
 fin.write(str(n) + '\n')
 
-FOOD WASTE: leaves     watermelon peel      leftovers
-RECYCLABLE: paper box    plastic bottle  clothes
-HAZARDOUS: rechargeable battery   abandoned medicine   disinfectant
-RESIDUAL WASTE:mask   battery   plastic bag
+# FOOD WASTE: leaves     watermelon peel      leftovers
+# RECYCLABLE: paper box    plastic bottle  clothes
+# HAZARDOUS: rechargeable battery   abandoned medicine   disinfectant
+# RESIDUAL WASTE:mask   battery   plastic bag
