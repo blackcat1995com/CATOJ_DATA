@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../Users/blackcat/Documents/CatProject"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp",
+			"ostream": "cpp",
+			"type_traits": "cpp",
+			"algorithm": "cpp",
+			"vector": "cpp",
+			"new": "cpp"
+		}
+	}
+}
