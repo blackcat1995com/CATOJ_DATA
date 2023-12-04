@@ -23,7 +23,7 @@ int main()
             
             Max[i][j] = max(Max[i][j-1], Max[i+(1<<(j-1))][j-1]); // 合并两个相同的数出现的更远的位置
         }
-        cout << endl;
+        // cout << endl;
     }
     while(m--)
     {
